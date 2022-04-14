@@ -29,6 +29,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import postRoutes from './routes/posts.js';
+import userRoutes from './routes/users.js';
 
 const app = express();
 dotenv.config();
@@ -38,6 +39,7 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
 app.use('/posts', postRoutes);
+app.use('/user', userRoutes);
 
 //const CONNECTION_URL = 'mongodb+srv://geminicodes:q22222@library-project.t5woi.mongodb.net/library-project?retryWrites=true&w=majority';
 const PORT = process.env.PORT|| 4000;
