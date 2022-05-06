@@ -35,18 +35,6 @@ export const getJobsBySearch = async (req, res) => {
     }
 }
 
-export const getJob = async (req, res) => { 
-    const { id } = req.params;
-
-    try {
-        const job = await JobItem.findById(id);
-        
-        res.status(200).json(job);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-}
-
 export const createJob = async (req, res) => {
     const job = req.body;
 
