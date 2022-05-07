@@ -23,7 +23,6 @@ const jobSchema = mongoose.Schema({
     companyName: String,
     jobUrl: String,
     status: String,
-    notes: String,
     tags: [String],
     likes: { type: [String], default: [] },
     createdAt: {
