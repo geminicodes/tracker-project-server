@@ -51,13 +51,12 @@ export const createJob = async (req, res) => {
 
 export const updateJob = async (req, res) => {
     const { id } = req.params;
-    //const { title, message, creator, selectedFile, tags } = req.body;
-    const { title, companyName, jobUrl, status, notes, tags, creator } = req.body;
+
+    const { title, companyName, jobUrl, status, tags, creator } = req.body;
     
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No job found with id: ${id}`);
 
-    //const updatedPost = { creator, title, message, tags, selectedFile, _id: id };
-    const updatedJob = { title, companyName, jobUrl, status, notes, tags, creator, _id: id };
+    const updatedJob = { title, companyName, jobUrl, status, tags, creator, _id: id };
 
     await JobItem.findByIdAndUpdate(id, updatedPost, { new: true });
 
@@ -95,7 +94,5 @@ export const likeJob = async (req, res) => {
     const updatedJob = await JobItem.findByIdAndUpdate(id, job, { new: true });
     res.status(200).json(updatedJob);
 }
-
-
 
 export default router;
