@@ -10,7 +10,7 @@ const app = express();
 
 dotenv.config();
 
-app.use(cors({ origin: "https://tracker-project-demo.firebaseapp.com/", credentials: true }));
+app.use(cors({ origin: "https://tracker-project-demo.firebaseapp.com", credentials: true }));
 
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
