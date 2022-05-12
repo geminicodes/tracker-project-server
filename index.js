@@ -4,30 +4,16 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import jobRoutes from './routes/jobs.js';
 import userRouter from './routes/user.js';
+import cors from 'cors';
 
 const app = express();
 
 dotenv.config();
 
-// instead of cors to work with heroku
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested, Content-Type, Accept Authorization"
-  )
-  if (req.method === "OPTIONS") {
-    res.header(
-      "Access-Control-Allow-Methods",
-      "POST, PUT, PATCH, GET, DELETE"
-    )
-    return res.status(200).json({})
-  }
-  next();
-})
+app.use(cors({ origin: "https://tracker-project-demo.firebaseapp.com/", credentials: true }));
 
-app.use(bodyParser.json({ limit: '30mb', extended: true }))
-app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
+app.use(bodyParser.json({ limit: '30mb', extended: true }));
+app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 
 
 app.use('/jobs', jobRoutes);
