@@ -10,7 +10,7 @@ const app = express();
 dotenv.config();
 
 app.use(cors({
-  origin: 'https://tracker-project-demo.web.app',
+  origin: 'https://tracker-project-demo.firebaseapp.com',
   credentials: true
 })
 );
