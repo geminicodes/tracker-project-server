@@ -11,11 +11,7 @@ const app = express();
 dotenv.config();
 
 app.use(cors({
-  'allowedHeaders': ['sessionId', 'Content-Type'],
-  'exposedHeaders': ['sessionId'],
-  'origin': '*',
-  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  'preflightContinue': false
+  origin: 'https://tracker-project-demo.firebaseapp.com',
 })
 );
 
@@ -27,7 +23,7 @@ app.use('/jobs', jobRoutes);
 app.use('/user', userRouter);
 
 app.get('/', (req, res) => {
-  res.send('APP iS RUNNING')
+  res.send('APP IS RUNNING')
 })
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
