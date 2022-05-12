@@ -11,8 +11,11 @@ const app = express();
 dotenv.config();
 
 app.use(cors({
-  origin: "https://tracker-project-demo.firebaseapp.com",
-  methods: ["GET", "POST", "PATCH", "DELETE"],
+  'allowedHeaders': ['sessionId', 'Content-Type'],
+  'exposedHeaders': ['sessionId'],
+  'origin': 'https://tracker-project-demo.firebaseapp.com',
+  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  'preflightContinue': false
 })
 );
 
