@@ -7,12 +7,12 @@ import jobRoutes from './routes/jobs.js';
 import userRouter from './routes/user.js';
 
 const app = express();
-const cors = require('cors');
+
 dotenv.config();
 
 app.use(cors({
-  origin: 'https://tracker-project-demo.firebaseapp.com',
-  credentials: true
+  origin: "https://tracker-project-demo.firebaseapp.com",
+  methods: ["GET", "POST", "PATCH", "DELETE"],
 })
 );
 
