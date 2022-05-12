@@ -13,7 +13,7 @@ dotenv.config();
 app.use(cors({
   'allowedHeaders': ['sessionId', 'Content-Type'],
   'exposedHeaders': ['sessionId'],
-  'origin': 'https://tracker-project-demo.firebaseapp.com',
+  'origin': '*',
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
   'preflightContinue': false
 })
