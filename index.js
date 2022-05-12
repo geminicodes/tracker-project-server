@@ -7,6 +7,7 @@ import jobRoutes from './routes/jobs.js';
 import userRouter from './routes/user.js';
 
 const app = express();
+const cors = require('cors');
 dotenv.config();
 
 app.use(cors({
